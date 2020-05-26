@@ -612,10 +612,10 @@ This advice can make `other-window' skip `aweshell' dedicated window."
 
 ;; eshell-prompt-extras
 ;; Display extra information and color for your eshell prompt.
-(require 'eshell-prompt-extras)
-(with-eval-after-load "esh-opt"
-  (setq eshell-highlight-prompt nil
-        eshell-prompt-function 'epe-theme-pipeline))
+;; (require 'eshell-prompt-extras)
+;; (with-eval-after-load "esh-opt"
+;;   (setq eshell-highlight-prompt nil
+;;         eshell-prompt-function 'epe-theme-pipeline))
 
 ;; Validate command before post to eshell.
 (defun aweshell-validate-command ()
@@ -692,11 +692,11 @@ This advice can make `other-window' skip `aweshell' dedicated window."
 (defalias 'eshell/unpack 'aweshell-unpack)
 
 ;; Synchronal buffer name by directory change.
-(defun aweshell-sync-dir-buffer-name ()
-  "Change aweshell buffer name by directory change."
-  (when (equal major-mode 'eshell-mode)
-    (rename-buffer (format "Aweshell: %s" (epe-fish-path default-directory))
-                   t)))
+(defun aweshell-sync-dir-buffer-name ())
+  ;; "Change aweshell buffer name by directory change."
+  ;; (when (equal major-mode 'eshell-mode)
+  ;;   (rename-buffer (format "Aweshell: %s" (epe-fish-path default-directory))
+  ;;                  t)))
 
 (add-hook 'eshell-directory-change-hook #'aweshell-sync-dir-buffer-name)
 (add-hook 'eshell-mode-hook #'aweshell-sync-dir-buffer-name)
